@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8">
+ <!-- include bootstrap css -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+ <link rel="stylesheet" href="css/style.css">
+
+ <!-- Das ist fuer das @media in der style.css -->
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+ <!-- include angular js -->
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+ <script src="js/jquery-3.2.1.js"></script>
+ <!-- include bootstrap js, popper, jQuery -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+ <!-- include main.js -->
+ <script src="js/main.js"></script>
+ 
+
+</head>
+<body>
+<a name="top" id="top"></a>
+    <div id="header">
+        <nav class="header navbar navbar-expand-lg navbar-light">
+            <img src="images/LogoPD.png" class="navbar-brand img-fluid" alt="phy2diLogo">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+
+           <div class="collapse navbar-collapse navbar-right" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link active" href="index.html"> Sammlung <span class="sr-only">(current)</span></a>
+                  <a class="nav-item nav-link" href="about.html">Das Projekt</a>
+                  <a class="nav-item nav-link" href="kontakt.html">Kontakt</a>
+                  <a class="nav-item nav-link" href="impressum.html">Impressum</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <button id="myBtn">↑</button>
+
+    <div id="content">
+        <div class="container">
+            <div ng-app="myApp" ng-controller="blogCtrl" class="row">
+                <div class="col-md-9">
+
+                    <!-- Ein Blog-Eintrag -->
+                    <div id="blog-entries" ng-repeat="x in names | filter:filterFn" class="row blogEntry">
+                        <div class="col-md-1 col-category">
+                            {{ x.Wkkurz }}
+                        </div>
+                        <div class="col-md-10 content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3>{{ x.Titel }}</h3>
+                                    <p class="txt-abstract">{{ x.Abstract }}</p>
+                                    <span class="blogEntryTitle" >Funktionsweise</span>
+                                    <p class="txt-functioning">{{ x.Funktionsweise }}</p>
+                                    <span class="blogEntryTitle">Datenrelation</span>
+                                    <p class="txt-datarelation">{{ x.Datenrelation }}</p>
+                                    <span class="blogEntryTitle">Übergang</span>
+                                    <p class="txt-datarelation">{{ x.Uebergang }}</p>
+                                    <span class="blogEntryTitle">Wissenschaftskategorie</span>
+                                    <p class="txt-category">{{ x.Wissenschaftskategorie }}</p>
+                                    <span class="blogEntryTitle">Referenzen</span> <br>
+                                    <a href= "{{ x.Weblink }}" target="_blank" class="txt-sources">{{ x.Weblink }}</a>
+                                    <p class="txt-paper">{{ x.Paper }}</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p><img class="img-thumbnail" src="{{ x.Abbildung }}" alt=""></p>
+                                    <span class="blogEntryTitle">Hardware</span>
+                                    <p class="txt-hardware">{{ x.Hardware }}</p>
+                                    <span class="blogEntryTitle">Software</span>
+                                    <p class="txt-software">{{ x.Software }}</p>
+                                    <span class="blogEntryTitle">Weitere Materialien</span>
+                                    <p class="txt-material">{{ x.Material }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 sidebar" class="fixed-top" >
+                    <h5 class="txt-category-title">Kategorien</h5>
+                        <div ng-repeat=" x in names | unique: 'Wissenschaftskategorie' | orderBy: ''" >
+                            <input type="checkbox" class="checkboxstyle" ng-model="categories[x.Wissenschaftskategorie]" ng-change="filterChange()">
+                            <span class="link-category">{{ x.Wissenschaftskategorie }}</span>
+                        </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div id="sideMenue">
+         <a >Kategorien</a>
+     </div>
+</body>
+</html>
