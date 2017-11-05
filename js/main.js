@@ -2,7 +2,7 @@ var app = angular.module('myApp', []);
 
 app.filter('unique', function() {
     return function(collection, keyname) {
-        var output = [], 
+        var output = [],
             keys = [];
 
         angular.forEach(collection, function(item) {
@@ -17,26 +17,7 @@ app.filter('unique', function() {
     };
 });
 
-app.filter('selectedCategories', function() {
-    return function(names, selected) {
-        if (names) {
-            return names.filter(function(name) {
-    
-                for (var i in name.Wissenschaftskategorie) {
-                    if (selected.indexOf(name.Wissenschaftskategorie[i]) != -1) {
-                        return true;
-                    }
-                }
-                return false;
-    
-            });
-        }
-        return false;
-    };
-});
-
 app.controller('blogCtrl', function($scope) {
-
     var oBtn = $('#myBtn');
 
     function readJSON() {
@@ -47,30 +28,37 @@ app.controller('blogCtrl', function($scope) {
                 var oJson = JSON.parse(this.responseText);
                 $scope.names = oJson;
                 $scope.$apply();
-                
+
             }
         };
 
         request.open('GET', 'js/literature.json', true);
         request.send();
-        
+
         if (request.status === 200) {
             return JSON.parse(request.responseText);
         }
     }
 
-    function filterChange() {
-        for (var category in $scope.categories) {
-            if ($scope.categories[category]) {
-                if ($scope.selected.indexOf(category) < 0) {
-                    $scope.selected.push(category);
-                }
-            } else {
-                if ($scope.selected.indexOf(category) > -1) {
-                    var index = $scope.selected.indexOf(category);
-                    $scope.selected = $scope.selected.slice(index, 0);
-                }
-            }
+    /**
+     * Filters the articles based on selected categories.
+     *
+     * @param {object} $event The browser's event object
+     */
+    function filterChange($event) {
+        var baseUrl = "images/cb-toggle-";
+        var category = $event.currentTarget.getAttribute("alt");
+        var index ;
+
+        // toggle on
+        if ($event.currentTarget.getAttribute("src").indexOf("-off") > -1) {
+            $event.currentTarget.setAttribute("src", baseUrl + "on.png");
+            $scope.selected.push(category);
+        } else {
+            // toggle off
+            $event.currentTarget.setAttribute("src", baseUrl + "off.png");
+            index = $scope.selected.indexOf(category);
+            $scope.selected.splice(index, 1);
         }
     }
 
@@ -82,7 +70,7 @@ app.controller('blogCtrl', function($scope) {
             return $scope.selected.indexOf(x.Wissenschaftskategorie) > -1;
         }
     }
-    
+
     $scope.names = readJSON();
     $scope.categories = {};
     $scope.selected = [];
