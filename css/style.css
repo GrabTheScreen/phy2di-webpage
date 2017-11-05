@@ -51,7 +51,6 @@ input {
 }
 
 .entries {
-    height: 480px;
     overflow-y: scroll;
 }
 
@@ -72,22 +71,21 @@ span.blogEntryTitle{
 .col-content {
     background: #FFFFFE;
     font-size: 12px;
-    margin-left: 25px;
+    margin-right: 50px;
     padding: 25px;
 }
 
 .col-sidebar {
+    display: block;
     padding: 15px;
 }
 
 .header {
-    margin-bottom: 25px;
     padding: 35px 50px;
 }
 
 .img-fluid {
     max-width: 100%;
-    height: 100px;
     width: 200px;
 }
 
@@ -107,15 +105,171 @@ span.blogEntryTitle{
     text-transform: uppercase;
 }
 
-@media (min-width: 992px) {
+/* The side navigation menu */
+
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav h7,
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 21px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav h7 {
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+
+/* The navigation menu links */
+
+.sidenav a {
+    font-size: 16px;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+
+.sidenav a:hover,
+.offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+
+/* Position and style the close button (top right corner) */
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-right .5s;
+    padding: 20px;
+}
+
+#btn-sidenav {
+    color: #000000;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 15px;
+    padding: 15px;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+a#btn-sidenav:hover {
+    text-decoration: underline;
+}
+
+@media screen and (min-height: 600px) {
+    .entries {
+        height: 525px !important;
+        overflow-y: scroll !important;
+    }
+}
+
+@media screen and (min-height: 568px) and (max-width: 320px) {
+    .col-content {
+        margin-right: 0 !important;
+    }
+
+    .col-sidebar {
+        display: none !important;
+    }
+
+    .entries {
+        height: 368px !important;
+        overflow-y: scroll !important;
+    }
+    .img-fluid {
+        width: 60% !important;
+    }
+
+    #btn-sidenav {
+        visibility: visible;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    .entries {
+        height: 800px !important;
+        overflow-y: scroll !important;
+    }
+}
+
+@media screen and (min-height: 1280px) {
+    .entries {
+        height: 1080px !important;
+        overflow-y: scroll !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
     .navbar-expand-lg .navbar-collapse {
         display: block !important;
         margin-right: 20px;
     }
+
 }
 
-@media (max-width: 767px) {
+/* ipad portrait mode */
+@media screen and (max-width: 768px) {
     .col-content {
-        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* iphone 6 plus portrait mode & iphone 5 landscape */
+@media screen and (max-width: 568px) {
+    .col-content {
+        margin-right: 0 !important;
+    }
+    .col-sidebar {
+        display: none !important;
+    }
+
+    #btn-sidenav {
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
     }
 }

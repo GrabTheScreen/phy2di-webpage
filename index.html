@@ -15,6 +15,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script src="js/main.js"></script>
+        <script src="js/sidenav.js"></script>
     </head>
     <body>
         <div id="header">
@@ -34,17 +35,17 @@
                 </div>
             </nav>
         </div>
-        <div id="content">
-            <div class="container">
-                <div ng-app="myApp" ng-controller="blogCtrl" class="row">
+        <div id="content" ng-app="myApp" ng-controller="blogCtrl">
+            <div id="main" class="container">
+                <a href="#" id="btn-sidenav" onclick="openNav()">>>> Kategorien anzeigen</a>
+                <div class="row">
                     <div class="entries col-md-9">
-
                         <!-- Ein Blog-Eintrag -->
                         <div ng-repeat="x in names | filter:filterFn" class="row blogEntry">
                             <div class="col-md-1 col-tags">
                                 <span class="tag">{{ x.Wkkurz }}</span>
                             </div>
-                            <div class="col-md-10 col-content">
+                            <div class="col-content">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <h3>{{ x.Titel }}</h3>
@@ -80,7 +81,7 @@
                         <div class="filter-category" ng-repeat=" x in names | unique: 'Wissenschaftskategorie' | orderBy: ''" >
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <img class="cb-toggle" ng-src="images/cb-toggle-off.png" ng-model="categories[x.Wissenschaftskategorie]" alt="{{ x.Wissenschaftskategorie }}" ng-click="filterChange($event)"></img>
+                                    <img class="cb-toggle" ng-src="images/cb-toggle-off.png" alt="{{ x.Wissenschaftskategorie }}" ng-click="filterChange($event)"></img>
                                 </div>
                                 <div class="col-sm-10">
                                     <span class="link-category">{{ x.Wissenschaftskategorie }}</span>
@@ -88,6 +89,13 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <h7>Kategorien</h7>
+                <div class="filter-category" ng-repeat=" x in names | unique: 'Wissenschaftskategorie' | orderBy: ''">
+                    <a href="#" class="link-category" ng-click="filterChangeSideNav($event)">{{ x.Wissenschaftskategorie }}</a>
                 </div>
             </div>
         </div>

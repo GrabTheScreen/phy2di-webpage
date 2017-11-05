@@ -62,6 +62,18 @@ app.controller('blogCtrl', function($scope) {
         }
     }
 
+    function filterChangeSideNav($event) {
+        var category = $event.currentTarget.text;
+        var index;
+
+        if ($scope.selected.indexOf(category) == -1) {
+            $scope.selected.push(category);
+        } else {
+            index = $scope.selected.indexOf(category);
+            $scope.selected.splice(index, 1);
+        }
+    }
+
     function filterFn(x){
         // Show all entries if none category is selected
         if ($scope.selected.length == 0) {
@@ -75,22 +87,6 @@ app.controller('blogCtrl', function($scope) {
     $scope.categories = {};
     $scope.selected = [];
     $scope.filterChange = filterChange;
+    $scope.filterChangeSideNav = filterChangeSideNav;
     $scope.filterFn = filterFn;
-});
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
-}
-
-$(document).ready(function() {
-    $('#myBtn').click(function(){
-        $('html,body').scrollTop(0);
-    });
 });
