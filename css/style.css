@@ -1,275 +1,191 @@
-body        {
-    color: #333;
-    background: rgb(233, 228, 215);
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.3em;
+body {
+	color: #333;
+	background: rgb(233, 228, 215) !important;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.3em;
 }
 
 a {
-    color: #000000;
-}
-
-a.link-category.small {
-    font-size: 13px;
-    font-style: underline;
+	color: #000000;
 }
 
 a.link-category:hover,
 a.link-category.small:hover {
-    color: #aaaaaa;
-    text-decoration: none;
+	color: #aaaaaa;
+	text-decoration: none;
 }
 
 a.nav-item.nav-link {
-    text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 input {
-    margin: 5px;
+	margin: 5px;
+}
+
+nav {
+	height: 100px;
+}
+
+span.blogEntryTitle {
+	font-weight: 900;
 }
 
 .navbar-nav .navbar-right {
-    display: block;
-}
-
-.cb-toggle {
-    cursor: pointer;
-    height: 23px;
-    margin-right: 15px;
-    width: 23px;
-}
-
-.filter-category {
-    margin-bottom: 5px;
-}
-
-.link-category {
-    line-height: 1em;
-    font-weight: 600;
-    font-size: 11px;
-    /* text-transform: uppercase !important; */
-}
-
-.entries {
-    overflow-y: scroll;
+	display: block;
 }
 
 .blogEntry {
-    margin: 15px;
+	margin: 15px;
 }
 
-span.blogEntryTitle{
-    font-weight: 900;
-}
-
-.col-tags {
-    font-weight: 700;
-    padding: 15px;
-    text-align: left;
+.cb-toggle {
+	cursor: pointer;
+	height: 23px;
+	margin-right: 15px;
+	width: 23px;
 }
 
 .col-content {
-    background: #FFFFFE;
-    font-size: 12px;
-    margin-right: 50px;
-    padding: 25px;
+	background: #FFFFFF;
+	font-size: 12px;
+	padding: 25px;
 }
 
 .col-sidebar {
-    display: block;
-    padding: 15px;
+	display: block;
+	padding: 15px;
+}
+
+.col-tags {
+	font-weight: 700;
+	padding: 25px;
+}
+
+.entries {
+	height: 75vh;
+	overflow-y: scroll;
+}
+
+.filter-category {
+	margin-bottom: 5px;
 }
 
 .header {
-    padding: 35px 50px;
+	padding: 35px 50px;
 }
 
 .img-fluid {
-    max-width: 100%;
-    width: 200px;
+	max-width: 100%;
+	width: 200px;
 }
 
-.navbar-nav {
-    background-color: E6E1CE;
-    float: right;
+.link-category {
+	line-height: 1em;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.navbar-nav.ml-auto {
+	float: right !important;
 }
 
 .navigation {
-    text-align: right;
-}
-
-.txt-category-title{
-    display: block;
-    font-weight: 900;
-    margin-bottom: 30px;
-    text-transform: uppercase;
+	text-align: right;
 }
 
 /* The side navigation menu */
 
 .sidenav {
-    height: 100%;
-    /* 100% Full-height */
-    width: 0;
-    /* 0 width - change this with JavaScript */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Stay on top */
-    top: 0;
-    right: 0;
-    background-color: #111;
-    /* Black*/
-    overflow-x: hidden;
-    /* Disable horizontal scroll */
-    padding-top: 60px;
-    /* Place content 60px from the top */
-    transition: 0.5s;
-    /* 0.5 second transition effect to slide in the sidenav */
+	height: 100%;
+	/* 100% Full-height */
+	width: 0;
+	/* 0 width - change this with JavaScript */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Stay on top */
+	top: 0;
+	right: 0;
+	background-color: #111;
+	/* Black*/
+	overflow-x: hidden;
+	/* Disable horizontal scroll */
+	padding-top: 60px;
+	/* Place content 60px from the top */
+	transition: 0.5s;
+	/* 0.5 second transition effect to slide in the sidenav */
 }
 
 .sidenav h7,
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 21px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 21px;
+	color: #818181;
+	display: block;
+	transition: 0.3s
 }
 
 .sidenav h7 {
-    margin-bottom: 25px;
-    text-transform: uppercase;
+	margin-bottom: 25px;
+	text-transform: uppercase;
 }
 
 
 /* The navigation menu links */
 
 .sidenav a {
-    font-size: 16px;
+	font-size: 16px;
 }
-
-
-/* When you mouse over the navigation links, change their color */
 
 .sidenav a:hover,
 .offcanvas a:focus {
-    color: #f1f1f1;
+	color: #f1f1f1;
 }
-
-
-/* Position and style the close button (top right corner) */
 
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
 }
 
-#main {
-    transition: margin-right .5s;
-    padding: 20px;
+.sidenav .link-category {
+	color: #ffffff;
+}
+
+.txt-category-title {
+	display: block;
+	font-weight: 900;
+	text-transform: uppercase;
 }
 
 #btn-sidenav {
-    color: #000000;
-    font-size: 11px;
-    font-weight: 600;
-    margin: 15px;
-    padding: 15px;
-    text-decoration: none;
-    visibility: hidden;
+	margin: 25px 0;
 }
 
-a#btn-sidenav:hover {
-    text-decoration: underline;
+#main {
+	transition: margin-right .5s;
+	padding: 20px;
 }
 
-@media screen and (min-height: 600px) {
-    .entries {
-        height: 525px !important;
-        overflow-y: scroll !important;
-    }
+@media screen and (max-width: 767px) {
+	#btn-sidenav {
+		display: block;
+	}
+	#select-categories {
+		display: none;
+	}
 }
 
-@media screen and (min-height: 568px) and (max-width: 320px) {
-    .col-content {
-        margin-right: 0 !important;
-    }
-
-    .col-sidebar {
-        display: none !important;
-    }
-
-    .entries {
-        height: 368px !important;
-        overflow-y: scroll !important;
-    }
-    .img-fluid {
-        width: 60% !important;
-    }
-
-    #btn-sidenav {
-        visibility: visible;
-    }
-}
-
-@media screen and (min-height: 1000px) {
-    .entries {
-        height: 800px !important;
-        overflow-y: scroll !important;
-    }
-}
-
-@media screen and (min-height: 1280px) {
-    .entries {
-        height: 1080px !important;
-        overflow-y: scroll !important;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .navbar-expand-lg .navbar-collapse {
-        display: block !important;
-        margin-right: 20px;
-    }
-
-}
-
-/* ipad portrait mode */
-@media screen and (max-width: 768px) {
-    .col-content {
-        margin-right: 0 !important;
-    }
-}
-
-/* iphone 6 plus portrait mode & iphone 5 landscape */
-@media screen and (max-width: 568px) {
-    .col-content {
-        margin-right: 0 !important;
-    }
-    .col-sidebar {
-        display: none !important;
-    }
-
-    #btn-sidenav {
-        visibility: visible;
-    }
-}
-
-@media screen and (max-width: 320px) {
-
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
-    }
+@media screen and (min-width: 768px) {
+	#btn-sidenav {
+		display: block;
+		visibility: hidden;
+	}
+	#select-categories {
+		display: block;
+	}
 }

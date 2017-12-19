@@ -62,6 +62,23 @@ app.controller('blogCtrl', function($scope) {
         }
     }
 
+    function filterChange2($event) {
+        var baseUrl = "images/cb-toggle-";
+        var category = $event.currentTarget.getAttribute("alt");
+        var index;
+
+        // toggle on
+        if ($event.currentTarget.getAttribute("src").indexOf("-off") > -1) {
+            $event.currentTarget.setAttribute("src", baseUrl + "on_white.png");
+            $scope.selected.push(category);
+        } else {
+            // toggle off
+            $event.currentTarget.setAttribute("src", baseUrl + "off_white.png");
+            index = $scope.selected.indexOf(category);
+            $scope.selected.splice(index, 1);
+        }
+    }
+
     function filterChangeSideNav($event) {
         var category = $event.currentTarget.text;
         var index;
@@ -87,6 +104,7 @@ app.controller('blogCtrl', function($scope) {
     $scope.categories = {};
     $scope.selected = [];
     $scope.filterChange = filterChange;
+    $scope.filterChange2 = filterChange2;
     $scope.filterChangeSideNav = filterChangeSideNav;
     $scope.filterFn = filterFn;
 });
