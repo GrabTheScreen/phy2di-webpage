@@ -6,7 +6,7 @@ body {
 }
 
 a {
-	color: #000000;
+	color: #555555 !important;
 }
 
 a.link-category:hover,
@@ -23,16 +23,12 @@ input {
 	margin: 5px;
 }
 
-nav {
+/* nav {
 	height: 100px;
-}
+} */
 
 span.blogEntryTitle {
 	font-weight: 900;
-}
-
-.navbar-nav .navbar-right {
-	display: block;
 }
 
 .blogEntry {
@@ -76,6 +72,7 @@ span.blogEntryTitle {
 }
 
 .img-fluid {
+	margin: 15px 0;
 	max-width: 100%;
 	width: 200px;
 }
@@ -92,6 +89,10 @@ span.blogEntryTitle {
 
 .navigation {
 	text-align: right;
+}
+
+.section {
+	margin: 25px 0;
 }
 
 /* The side navigation menu */
