@@ -61,6 +61,7 @@ span.blogEntryTitle {
 .entries {
 	height: 75vh;
 	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .filter-category {
@@ -155,6 +156,7 @@ span.blogEntryTitle {
 
 .sidenav .link-category {
 	color: #ffffff;
+	/* font-size: 0.8rem; */
 }
 
 .txt-category-title {
@@ -183,10 +185,13 @@ span.blogEntryTitle {
 
 @media screen and (min-width: 768px) {
 	#btn-sidenav {
-		display: block;
-		visibility: hidden;
+		display: none;
 	}
 	#select-categories {
 		display: block;
+	}
+
+	#mySidenav {
+		display: none;
 	}
 }

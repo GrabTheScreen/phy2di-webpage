@@ -80,7 +80,7 @@
 										<a href="{{ x.Weblink }}" target="_blank" class="txt-sources">{{ x.Weblink }}</a>
 										<p class="txt-paper">{{ x.Paper }}</p>
 									</div>
-									<div class="col-md-3 offset-1">
+									<div class="col-md-4">
 										<p>
 											<img class="img-thumbnail" src="{{ x.Abbildung }}" alt="{{ x.Titel }}">
 										</p>
@@ -114,14 +114,12 @@
 		<!-- sidenav -->
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<div class="container">
-				<h7>Kategorien</h7>
-				<div class="filter-category" ng-repeat=" x in names | unique: 'Wissenschaftskategorie' | orderBy: ''">
-					<div class="row">
-						<div class="col-sm-2">
+			<h7>Kategorien</h7>
+			<div class="filter-category" ng-repeat=" x in names | unique: 'Wissenschaftskategorie' | orderBy: ''">
+				<div class="row">
+					<div class="container">
+						<div class="col-md-12">
 							<img class="cb-toggle" ng-src="images/cb-toggle-off_white.png" alt="{{ x.Wissenschaftskategorie }}" ng-click="filterChange2($event)"></img>
-						</div>
-						<div class="col-sm-9">
 							<span class="link-category">{{ x.Wissenschaftskategorie }}</span>
 						</div>
 					</div>
